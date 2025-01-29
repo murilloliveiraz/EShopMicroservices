@@ -1,6 +1,4 @@
-﻿using Marten.Linq.SoftDeletes;
-
-namespace Catalog.API.Products.GetProductsByCategory;
+﻿namespace Catalog.API.Products.GetProductsByCategory;
 
 public record GetProductsByCategoryQuery(string category) : IQuery<GetProductsByCategoryResult>;
 public record GetProductsByCategoryResult(IEnumerable<Product> Product);
