@@ -1,5 +1,4 @@
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
 var assembly = typeof(Program).Assembly;
 
@@ -10,10 +9,24 @@ builder.Services.AddMediatR(config =>
     config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 });
 
+builder.Services.AddValidatorsFromAssembly(assembly);
+
+builder.Services.AddMarten(opts =>
+{
+    opts.Connection(builder.Configuration.GetConnectionString("Postgres-BasketDb")!);
+    opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
+}).UseLightweightSessions();
+
 builder.Services.AddCarter();
 
-app.MapGet("/", () => "Hello World!");
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+
+var app = builder.Build();
 
 app.MapCarter();
+
+app.UseExceptionHandler(opt => { });
 
 app.Run();
