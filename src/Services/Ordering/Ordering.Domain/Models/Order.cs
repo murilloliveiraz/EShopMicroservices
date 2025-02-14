@@ -1,12 +1,13 @@
 ﻿using Ordering.Domain.Abstractions;
-using System.Net;
+using Ordering.Domain.Enums;
+using Ordering.Domain.ValueObjects;
 
 namespace Ordering.Domain.Models
 {
     public class Order: Aggregate<Guid>
     {
         private readonly List<OrderItem> _orderItems = new();
-        public IReadOnlyList<OrderItem> OrderItem => _orderItems.AsReadOnly();
+        public IReadOnlyList<OrderItem> OrderItems => _orderItems.AsReadOnly();
         public Guid CustomerId { get; private set; } = default!;
         public string OrderName { get; private set; } = default!;
         public Address ShippingAddress { get; private set; } = default!;
