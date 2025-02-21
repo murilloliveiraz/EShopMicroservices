@@ -7,3 +7,6 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Ordering.Infraestructure.Data;
 global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using Ordering.Domain.Abstractions;
+global using Ordering.Infraestructure.Data.Interceptors;
