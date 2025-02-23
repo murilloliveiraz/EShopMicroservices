@@ -10,3 +10,4 @@ global using Microsoft.AspNetCore.Builder;
 global using Microsoft.EntityFrameworkCore.ChangeTracking;
 global using Ordering.Domain.Abstractions;
 global using Ordering.Infraestructure.Data.Interceptors;
+global using Ordering.Application.Data;

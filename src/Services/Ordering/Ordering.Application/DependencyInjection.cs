@@ -8,6 +8,8 @@ public static class DependencyInjection
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            config.AddOpenBehavior(typeof(ValidationBehaviors<,>));
+            config.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
 
         return services;
