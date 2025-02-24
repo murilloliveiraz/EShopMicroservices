@@ -15,9 +15,4 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-    <Folder Include="Orders\Queries\GetOrderById\" />
-  </ItemGroup>
-
 </Project>
